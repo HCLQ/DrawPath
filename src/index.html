@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            vertical-align: top;
+        }
+
+        input {
+            width: 50px;
+        }
+
+        #paths {
+            height: 100px;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test">
+        <div>
+            <div>
+                <label>
+                    <input id="splits">  每条命令分割几个点,越多线越平缓光滑,执行速度越慢,距离短的再分割过多会留空...
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input id="times">每一帧绘制几次,越多绘制越快
+                </label>
+            </div>
+            <label>
+                <textarea id="paths"></textarea>svg路径字符串,可以用ps工具扣路径数据获取
+            </label>
+        </div>
+        绘制模式:
+        <select id="paintMode">
+            <option value="points">点集</option>
+            <option value="direct">直接</option>
+        </select>
+        <button id="restart">restart</button>
+    </div>
+    <canvas id="test" width="500" height="500"></canvas>
+</body>
+
+</html>
