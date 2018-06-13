@@ -144,7 +144,6 @@ class DrawPath {
         progresive();
     }
 }
-export default DrawPath;
 window.DrawPath = DrawPath;
 
 

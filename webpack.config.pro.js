@@ -6,7 +6,8 @@ const path = require('path'),
     CopyWebpackPlugin = require('copy-webpack-plugin');
 const config = {
     entry: {
-        DrawPath: path.join(__dirname, "./src/DrawPath.js")
+        DrawPath: path.join(__dirname, "./src/DrawPath.js"),
+        develop: path.join(__dirname, "./src/develop.js")
     },
     output: {
         filename: '[name].js',
@@ -48,6 +49,12 @@ const config = {
                 ]
             }
         ]
+    },
+    optimization:{
+        minimize:true,//是否压缩
+        // splitChunks:{
+        //     chunks: 'all'
+        // }
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),//清理旧文件

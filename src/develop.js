@@ -1,4 +1,3 @@
-import DrawPath from "./DrawPath";
 import M from "$U/matrix";
 import V from "$U/vector";
 const canvas = document.getElementById("test"),

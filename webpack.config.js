@@ -5,7 +5,8 @@ const path = require('path'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = {
     entry: {
-        DrawPath: path.join(__dirname, "./src/develop.js")
+        DrawPath: path.join(__dirname, "./src/DrawPath.js"),
+        develop: path.join(__dirname, "./src/develop.js")
     },
     output: {
         filename: '[name]-[hash].js',
@@ -48,7 +49,22 @@ const config = {
             }
         ]
     },
+    optimization:{
+        minimize:false//是否压缩
+    },
     plugins: [
+        new webpack.optimization.splitChunks({
+            name: 'vendor',
+            minChunks: function (module, count) {
+                return (
+                    module.resource &&
+                    /\.js$/.test(module.resource) &&
+                    module.resource.indexOf(
+                        path.join(__dirname, '../node_modules')
+                    ) === 0
+                )
+            }
+        }),
         new CleanWebpackPlugin(['dist']),//清理旧文件
         new ExtractTextPlugin("[name]-[hash].css"),
         new HtmlWebpackPlugin({
